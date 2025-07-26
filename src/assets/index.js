@@ -37,8 +37,12 @@ import more from "./more.png";
 import upload from "./upload.png";
 import video from "./video.mp4";
 import voiceSearch from "./voice-search.png";
+import tech from "./tech.png";
+import tom from "./tom.png";
 
 export const assets = {
+  tom,
+  tech,
   upload,
   more,
   automobiles,
