@@ -18,7 +18,7 @@ const NavBar = () => {
         <img src={assets.upload} alt="" />
         <img src={assets.more} alt="" />
         <img src={assets.notification} alt="" />
-        <img src={assets.jack} alt="" />
+        <img src={assets.jack} alt="" className="user-icon" />
       </div>
     </nav>
   );
