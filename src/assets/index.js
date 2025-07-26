@@ -19,13 +19,12 @@ import messages from "./messages.png";
 import music from "./music.png";
 import news from "./news.png";
 import notification from "./notification.png";
-import prblm from "./prblm.png";
 import search from "./search.png";
 import share from "./share.png";
 import showMore from "./show-more.png";
 import simon from "./simon.png";
 import sports from "./sports.png";
-import subscription from "./subscription.png";
+import subscription from "./subscriprion.png";
 import thumb1 from "./thumbnail1.png";
 import thumb2 from "./thumbnail2.png";
 import thumb3 from "./thumbnail3.png";
@@ -34,13 +33,14 @@ import thumb5 from "./thumbnail5.png";
 import thumb6 from "./thumbnail6.png";
 import thumb7 from "./thumbnail7.png";
 import thumb8 from "./thumbnail8.png";
-import topman from "./top_man.png";
-import topwoman from "./top_woman.png";
-import userProfile from "./user_profile.png";
+import more from "./more.png";
+import upload from "./upload.png";
 import video from "./video.mp4";
 import voiceSearch from "./voice-search.png";
 
 export const assets = {
+  upload,
+  more,
   automobiles,
   blogs,
   cameron,
@@ -62,7 +62,6 @@ export const assets = {
   music,
   news,
   notification,
-  prblm,
   search,
   share,
   showMore,
@@ -77,9 +76,6 @@ export const assets = {
   thumb6,
   thumb7,
   thumb8,
-  topman,
-  topwoman,
-  userProfile,
   video,
   voiceSearch,
 };
