@@ -2,9 +2,9 @@ import React from "react";
 import { assets } from "../../assets";
 import "./SlideBar.css";
 
-const SlideBar = () => {
+const SlideBar = ({ sidebar }) => {
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${sidebar ? "" : "small-sidebar"}`}>
       <div className="shortcut-links">
         <div className="side-link">
           <img src={assets.home} alt="" />
