@@ -2,7 +2,7 @@ import React from "react";
 import "./Feed.css";
 import { assets } from "../../assets";
 import { Link } from "react-router-dom";
-const Feed = () => {
+const Feed = ({category}) => {
   return (
     <div className="feed">
       <Link to={`video/20/4251`} className="card">
