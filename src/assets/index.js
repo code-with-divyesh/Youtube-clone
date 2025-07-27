@@ -39,8 +39,12 @@ import video from "./video.mp4";
 import voiceSearch from "./voice-search.png";
 import tech from "./tech.png";
 import tom from "./tom.png";
+import save from "./save.png";
+import userprofile from "./user-profile.jpg";
 
 export const assets = {
+  userprofile,
+  save,
   tom,
   tech,
   upload,
