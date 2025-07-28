@@ -5,6 +5,10 @@
   grid-row-gap: 30px;
   margin-top: 15px;
 }
+.card {
+  text-decoration: none;
+  color: inherit;
+}
 .card img {
   width: 100%;
   border-radius: 5px;

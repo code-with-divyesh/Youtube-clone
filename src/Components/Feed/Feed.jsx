@@ -1,138 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Feed.css";
 import { assets } from "../../assets";
 import { Link } from "react-router-dom";
-const Feed = ({category}) => {
+import moment from "moment";
+const Feed = ({ category }) => {
+  const formatCount = (num) => {
+    if (num >= 1_000_000) return (num / 1_000_000).toFixed(1) + "M";
+    if (num >= 1_000) return (num / 1_000).toFixed(1) + "K";
+    return num;
+  };
+
+  const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
+  const [data, setData] = useState([]);
+  const fetchData = async () => {
+    const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&regionCode=IN&videoCategoryId=${category}&maxResults=50&key=${API_KEY}`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      console.log("Fetched Videos:", data.items);
+      setData(data.items);
+    } catch (error) {
+      console.log("error fetching data", error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, [category]);
   return (
     <div className="feed">
-      <Link to={`video/20/4251`} className="card">
-        <img src={assets.thumb1} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </Link>
-      <div className="card">
-        <img src={assets.thumb2} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb3} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb4} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb5} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb6} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb7} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb8} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb1} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb2} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb3} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb4} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb5} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb6} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb7} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
-      <div className="card">
-        <img src={assets.thumb8} alt="" />
-        <h2>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi!
-        </h2>
-        <h3>code-with-divyesh</h3>
-        <p>15k views &bull;2 days ago</p>
-      </div>
+      {data.map((item, index) => {
+        return (
+          <Link
+            to={`video/${item.snippet.categoryId}/${item.id}`}
+            key={index}
+            className="card"
+          >
+            <img src={item.snippet.thumbnails.medium.url} alt="" />
+            <h2>{item.snippet.localized.title}</h2>
+            <h3>{item.snippet.channelTitle}</h3>
+            <p>
+              {formatCount(item.statistics.viewCount)}
+              {"  "}
+              views &bull;
+              {moment(item.snippet.publishedAt).fromNow()}
+            </p>
+          </Link>
+        );
+      })}
     </div>
   );
 };
