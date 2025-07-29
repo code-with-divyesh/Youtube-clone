@@ -5,7 +5,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
+  text-decoration: none;
+  color: inherit;
 }
+
 .side-video-list img {
   width: 50%;
   cursor: pointer;
