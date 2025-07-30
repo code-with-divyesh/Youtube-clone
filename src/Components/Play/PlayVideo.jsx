@@ -23,7 +23,7 @@ const PlayVideo = ({ videoId }) => {
   };
 
   const fetchComments = async () => {
-    const url = `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=1&key=${API_KEY}`;
+    const url = `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=50&key=${API_KEY}`;
     try {
       const res = await fetch(url);
       const result = await res.json();

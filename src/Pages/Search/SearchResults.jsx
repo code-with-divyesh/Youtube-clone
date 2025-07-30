@@ -18,7 +18,7 @@ const SearchResults = () => {
     try {
       // Step 1: Get videoIds from search API
       const res = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=20&key=${API_KEY}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=50&key=${API_KEY}`
       );
       const data = await res.json();
       const videoIds = data.items.map((item) => item.id.videoId).join(",");

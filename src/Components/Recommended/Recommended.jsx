@@ -10,7 +10,7 @@ const Recommended = ({ categoryId }) => {
     if (!categoryId) return;
 
     try {
-      const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&videoCategoryId=${categoryId}&maxResults=10&regionCode=IN&key=${API_KEY}`;
+      const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&videoCategoryId=${categoryId}&maxResults=50&regionCode=IN&key=${API_KEY}`;
 
       const res = await fetch(url);
       const data = await res.json();
