@@ -9,6 +9,7 @@ const NavBar = ({ setSideBar }) => {
     e.preventDefault();
     if (!query.trim()) return;
     navigate(`/search/${query}`);
+    setQuery("");
   };
   return (
     <nav className="flex-div">

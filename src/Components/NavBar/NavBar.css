@@ -68,7 +68,7 @@ img {
   }
   @media (max-width: 448px) {
     .nav-middle .search-box input {
-      width: 100px;
+      width: 150px;
     }
   }
 }
