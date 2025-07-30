@@ -8,3 +8,12 @@
 .large-container {
   padding-left: 7%;
 }
+@media (max-width: 900px) {
+  .large-container,
+  .container {
+    padding-left: 7%;
+    padding-right: 1%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}

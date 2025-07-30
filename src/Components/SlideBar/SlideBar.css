@@ -48,3 +48,30 @@
   padding-bottom: 2px;
   border-bottom: 3px solid red;
 }
+@media (max-width: 900px) {
+  .sidebar {
+    width: 5%;
+    padding-left: 0.5rem; /* tighter padding */
+  }
+
+  .sidebar p,
+  .sidebar h3 {
+    display: none;
+  }
+
+  .sidebar hr {
+    width: 50%;
+    margin: 20px auto;
+  }
+  .side-link:hover p {
+    display: inline;
+    position: absolute;
+    left: 38px; /* adjust based on your sidebar width */
+    background: #fff;
+    padding: 2px 8px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+    white-space: nowrap;
+    z-index: 100;
+  }
+}

@@ -124,3 +124,20 @@
 .show-toggle-button:hover {
   text-decoration: underline;
 }
+@media (max-width: 900px) {
+  .playvideo {
+    flex-basis: 100%;
+  }
+  .playvideo iframe {
+    width: 100%;
+    height: 50vw;
+  }
+  .video-des {
+    padding-left: 0;
+  }
+  .playvideo .play-video-info span {
+    margin-left: 0;
+    margin-right: 15px;
+    margin-top: 15px;
+  }
+}
