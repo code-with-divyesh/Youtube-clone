@@ -50,7 +50,7 @@
 }
 @media (max-width: 900px) {
   .sidebar {
-    width: 5%;
+    width: 8%;
     padding-left: 0.5rem; /* tighter padding */
   }
 
